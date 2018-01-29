@@ -1,0 +1,70 @@
+{include file='public/header' /}
+    <style type="text/css">
+        td.title{ text-align: center; color: #009E94; font-size: 16px; }
+    </style>
+    <div class="layui-collapse">
+        <div class="layui-colla-item">
+            <h2 class="layui-colla-title">邮件</h2>
+            <div class="layui-colla-content">
+                <table class="layui-table">
+                    <colgroup>
+                        <col width="220">
+                        <col>
+                        <col>
+                        <col width="45">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>类名</th>
+                            <th>扩展库</th>
+                            <th>PHP扩展</th>
+                            <th>操作</th>
+                        </tr> 
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <td><a href="#">Mail</a></td>
+                          <td><a href="#">PHPMailer</a></td>
+                          <td>php_sockets,php_openssl</td>
+                          <td><a href="#" class="layui-btn layui-btn-small">下载</a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" class="title">详细操作</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">sendMail</a></td>
+                            <td colspan="3">发送邮件</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div id="app-4">
+        <ol>
+            <li v-for="todo in todos">{{ todo.text }}</li>
+        </ol>
+    </div>
+    <script>
+        $(function(){
+            //注意：折叠面板 依赖 element 模块，否则无法进行功能性操作
+            layui.use('element', function(){
+              var element = layui.element;
+              
+              //…
+            });
+
+            var app4 = new Vue({
+                el: '#app-4',
+                data: {
+                    todos: [
+                      { text: '学习 JavaScript' },
+                      { text: '学习 Vue' },
+                      { text: '整个牛项目' }
+                    ]
+                }
+            })
+        })
+    </script>
+
+{include file='public/footer' /}

@@ -2,34 +2,49 @@
 
 namespace app\index\controller;
 
-use think\Controller;
+use think\Db;
 
-class Index extends Controller
+class Index extends Base
 {
     public function index()
     {
-        return '<style type="text/css">*{ padding: 0; margin: 0; } .think_default_text{ padding: 4px 48px;} a{color:#2E5CD5;cursor: pointer;text-decoration: none} a:hover{text-decoration:underline; } body{ background: #fff; font-family: "Century Gothic","Microsoft yahei"; color: #333;font-size:18px} h1{ font-size: 100px; font-weight: normal; margin-bottom: 12px; } p{ line-height: 1.6em; font-size: 42px }</style><div style="padding: 24px 48px;"> <h1>:)</h1><p> ThinkPHP V5<br/><span style="font-size:30px">十年磨一剑 - 为API开发设计的高性能框架</span></p><span style="font-size:22px;">[ V5.0 版本由 <a href="http://www.qiniu.com" target="qiniu">七牛云</a> 独家赞助发布 ]</span></div><script type="text/javascript" src="http://tajs.qq.com/stats?sId=9347272" charset="UTF-8"></script><script type="text/javascript" src="http://ad.topthink.com/Public/static/client.js"></script><thinkad id="ad_bd568ce7058a1091"></thinkad>';
+        $plug_model = Db::name('plug');
+        $list = $plug_model->paginate(10);
+        $this->assign('list', json_encode($list));
+        return view();
     }
 
     /**
-     * [sendMail]
-     * 函数用途描述: 发送邮件
-     * @date:  2018-01-26
+     * [addConfig]
+     * 函数用途描述: 添加配置
+     * @date:  2018-01-29
+     * @author: xiaohui
+     * @param: [variable]
+     */
+    public function addConfig()
+    {}
+
+    /**
+     * [editConfig]
+     * 函数用途描述: 编辑配置
+     * @date:  2018-01-29
      * @author: xiaohui
      * @param: [variable]
      * @return [type]     [description]
      */
-    public function sendMail()
-    {   
-        $acceptor = '635981000@qq.com';
-        $title = '测试发送标题';
-        $content = '<h1>测试内容</h1><div style="color: red;font-size: 18px;">测试html代码</div>';
-        $send_status = sendMail($acceptor, $title, $content);
-        return $send_status['msg'];
-        // if ($send_status['status'] == 1) {
-        //  return "发送成功";
-        // } else {
-        //  return $send_status['msg'];
-        // }
-    }
+    public function editConfig()
+    {}
+
+    /**
+     * [delConfig]
+     * 函数用途描述: 删除配置
+     * @date:  2018-01-29
+     * @author: xiaohui
+     * @param: [variable]
+     * @return [type]     [description]
+     */
+    public function delConfig()
+    {}
+
+    
 }

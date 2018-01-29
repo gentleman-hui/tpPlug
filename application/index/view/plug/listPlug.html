@@ -1,0 +1,59 @@
+{include file='public/header' /}
+    <table class="layui-table" id="plug">
+        <colgroup>
+            <col width="150">
+            <col width="150">
+            <col>
+            <col>
+            <col width="50">
+            <col width="160">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>插件名称</th>
+                <th>类名</th>
+                <th>扩展库</th>
+                <th>PHP扩展</th>
+                <th>下载</th>
+                <th>添加时间</th>
+            </tr> 
+        </thead>
+        <tbody>
+            <tr>
+                {volist name="list" id="vo"}
+                <td>{$vo.plug_name}</td>
+                <td><a href="{:url('/index/'.$vo['class_name'].'/index')}">{$vo.class_name}</a></td>
+                <td>
+                    {php}$extends = json_decode($vo['extends'], true);{/php}
+                    {volist name="extends" id="ve"}
+                    <a href="{$ve.url}">{$ve.name}</a>
+                    {/volist}
+                </td>
+                <td>
+                    {php}$php_extends = json_decode($vo['php_extends'], true);{/php}
+                    {volist name="php_extends" id="ve"}
+                    {$ve}|
+                    {/volist}
+                </td>
+                <td><a href="{$vo.down_url}" class="layui-btn layui-btn-small">下载</a></td>
+                <td>{$vo['create_time']|date="Y-m-d H:i:s", ###}</td>
+                {/volist}
+            </tr>
+        </tbody>
+    </table>
+    <style type="text/css">
+        .page{ width: 100%;height: 32px; }
+        ul.pagination{ float: right;width: auto;height: auto;overflow: hidden; }
+        ul.pagination li{ float: left;width: 35px;height: 30px;line-height: 32px;text-align: center;border: 1px solid #e2e2e2;cursor: pointer; }
+        ul.pagination li a{ display: block;width: 100%; }
+        ul.pagination li.disabled{ color: #d2d2d2; }
+        ul.pagination li.disabled:hover{ color: #d2d2d2;cursor: not-allowed !important; }
+        ul.pagination li.active{ border-color: #009688;background-color: #009688;color: #fff; }
+        ul.pagination li.active:hover{ border-color: #009688;background-color: #009688;color: #fff; }
+        ul.pagination li:hover{ border-color: #ccc;color: #009688; }
+    </style>
+    <div class="page">
+        {$page}
+    </div>
+
+{include file='public/footer' /}
