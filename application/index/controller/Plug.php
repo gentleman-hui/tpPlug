@@ -43,6 +43,10 @@ class Plug extends Base
      */
     public function addPlug()
     {
+        if ($this->request->isPost()) {
+            $post_data = input('post.');
+            return json_encode(['status'=>1, 'msg'=>'test']);
+        }
         return view('savePlug');
     }
 

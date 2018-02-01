@@ -41,18 +41,10 @@
             </tr>
         </tbody>
     </table>
-    <style type="text/css">
-        .page{ width: 100%;height: 32px; }
-        ul.pagination{ float: right;width: auto;height: auto;overflow: hidden; }
-        ul.pagination li{ float: left;width: 35px;height: 30px;line-height: 32px;text-align: center;border: 1px solid #e2e2e2;cursor: pointer; }
-        ul.pagination li a{ display: block;width: 100%; }
-        ul.pagination li.disabled{ color: #d2d2d2; }
-        ul.pagination li.disabled:hover{ color: #d2d2d2;cursor: not-allowed !important; }
-        ul.pagination li.active{ border-color: #009688;background-color: #009688;color: #fff; }
-        ul.pagination li.active:hover{ border-color: #009688;background-color: #009688;color: #fff; }
-        ul.pagination li:hover{ border-color: #ccc;color: #009688; }
-    </style>
     <div class="page">
+        <div class="page_action">
+            <a href="{:url('addPlug')}" class="layui-btn layui-btn-small layui-btn-normal">添加</a>
+        </div>
         {$page}
     </div>
 

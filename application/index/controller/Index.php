@@ -3,6 +3,7 @@
 namespace app\index\controller;
 
 use think\Db;
+use Alipay\Alipay;
 
 class Index extends Base
 {
@@ -46,5 +47,9 @@ class Index extends Base
     public function delConfig()
     {}
 
-    
+    public function pay()
+    {
+        $alipay = new Alipay();
+        return $alipay->index();
+    }
 }

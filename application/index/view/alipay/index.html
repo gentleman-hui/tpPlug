@@ -1,0 +1,72 @@
+{include file='public/header' /}
+    <style type="text/css">
+        .layui-form .layui-form-item .layui-input-inline{ width: 450px; }
+    </style>
+    <form class="layui-form" action="" method="post">
+        <div class="layui-form-item">
+            <label class="layui-form-label">插件名称</label>
+            <div class="layui-input-inline">
+                <input type="text" name="plug_name" required lay-verify="required" placeholder="请输入插件名称" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-form-mid layui-word-aux"></div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">类名</label>
+            <div class="layui-input-inline">
+                <input type="text" name="class_name" required lay-verify="required" placeholder="请输入类名" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-form-mid layui-word-aux">类名作为打包程序的唯一标示，请认真填写</div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">扩展库</label>
+            <div class="layui-input-inline">
+                <textarea name="extends" placeholder="请输入扩展库" class="layui-textarea"></textarea>
+            </div>
+            <div class="layui-form-mid layui-word-aux">可填写多个，','分割</div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">PHP所需扩展</label>
+            <div class="layui-input-inline">
+                <textarea name="php_extends" placeholder="请输入PHP所需扩展" class="layui-textarea"></textarea>
+            </div>
+            <div class="layui-form-mid layui-word-aux">可填写多个，','分割</div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">下载地址</label>
+            <div class="layui-input-inline">
+                <input type="text" name="down_url" placeholder="http[s]://" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-form-mid layui-word-aux">可自行填写下载地址，为空则系统生成</div>
+        </div>
+          <div class="layui-form-item">
+    <label class="layui-form-label">开关</label>
+    <div class="layui-input-block">
+      <input type="checkbox" name="switch" lay-skin="switch">
+    </div>
+  </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="savePlug">立即提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+    </form>
+    <script>
+        $(function(){
+            layui.use('form', function(){
+                var form = layui.form;
+                //监听提交
+                form.on('submit(savePlug)', function(data){
+                    console.log(data.form);
+                    //加载层-风格4
+                    layer.msg('加载中...', {
+                       icon: 16,
+                       shade: 0.2,
+                       time:0,
+                    });
+                    // return false;
+                });
+            });
+        });
+    </script>
+{include file='public/footer' /}

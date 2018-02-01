@@ -10,13 +10,6 @@ namespace app\index\controller;
  */
 class Mail extends Base {
     
-    public function index()
-    {
-        $methods = get_class_methods("app\index\controller\Mail");     //返回类中所有方法 
-        $this->assign('list', $methods);
-        var_dump($methods);
-    }
-
     /**
      * [sendMail]
      * 函数用途描述: 发送邮件
