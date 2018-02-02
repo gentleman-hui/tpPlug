@@ -47,9 +47,5 @@ class Index extends Base
     public function delConfig()
     {}
 
-    public function pay()
-    {
-        $alipay = new Alipay();
-        return $alipay->index();
-    }
+    
 }
